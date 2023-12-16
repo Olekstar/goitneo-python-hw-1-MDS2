@@ -24,6 +24,10 @@ def get_birthdays_next_week(users):
             # Визначення дня тижня дня народження
             day_of_week = birthday_this_year.strftime("%A")
 
+            # Якщо день народження вихідний, привітати в понеділок
+            if day_of_week in ["Saturday", "Sunday"]:
+                day_of_week = "Monday"
+
             # Збереження імені користувача в відповідний день тижня
             birthdays_by_day[day_of_week].append(name)
 
@@ -35,20 +39,21 @@ def get_birthdays_next_week(users):
         if names:
             print(f"{day}: {', '.join(names)}")
 
+
 # Приклад використання
 users = [
-    {"name": "Anna", "birthday": datetime(1981, 1, 1)},
-    {"name": "Ivan", "birthday": datetime(1982, 2, 2)},
-    {"name": "Maria", "birthday": datetime(2001, 3, 3)},
-    {"name": "Petro", "birthday": datetime(2002, 4, 4)},
-    {"name": "Olga", "birthday": datetime(2002, 5, 5)},
-    {"name": "Sergiy", "birthday": datetime(2003, 6, 6)},
-    {"name": "Viktoriya", "birthday": datetime(2004, 7, 7)},
-    {"name": "Oleksandr", "birthday": datetime(2001, 8, 8)},
-    {"name": "Kateryna", "birthday": datetime(2001, 12, 9)},
-    {"name": "Dmytro", "birthday": datetime(2001, 12, 9)},
-    {"name": "Maryna", "birthday": datetime(2001, 12, 7)},
-    {"name": "Pavlo", "birthday": datetime(2001, 12, 6)},
+    {"name": "Anna", "birthday": datetime(1981, 12, 27)},
+    {"name": "Ivan", "birthday": datetime(1982, 12, 26)},
+    {"name": "Maria", "birthday": datetime(2001, 12, 25)},
+    {"name": "Petro", "birthday": datetime(2002, 12, 24)},
+    {"name": "Olga", "birthday": datetime(2002, 12, 23)},
+    {"name": "Sergiy", "birthday": datetime(2003, 12, 22)},
+    {"name": "Viktoriya", "birthday": datetime(2004, 12, 21)},
+    {"name": "Oleksandr", "birthday": datetime(2001, 12, 20)},
+    {"name": "Kateryna", "birthday": datetime(2001, 12, 19)},
+    {"name": "Dmytro", "birthday": datetime(2001, 12, 18)},
+    {"name": "Maryna", "birthday": datetime(2001, 12, 17)},
+    {"name": "Pavlo", "birthday": datetime(2001, 12, 16)},
 ]
 
 get_birthdays_next_week(users)
